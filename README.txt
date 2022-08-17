@@ -2,7 +2,7 @@ Mercator sieve
 
 The sieve is formed by an array S stored in central memory, which contains URL
 signatures. The array is initially empty, and is filled incrementally. The size
-of the vector is fixed at some value 𝑛ìn. In mass storage, instead, we will keep
+of the vector is fixed at some value n in. In mass storage, instead, we will keep
 a file Z containing all signatures of previously known URLs in sorted order,
 and an auxiliary file A, both initially empty.
 
@@ -12,7 +12,7 @@ flush as follows:
 
 1. We sort S indirectly. That is, we sort stably a vector V of length that
 contains the numbers in [0..n) using as key S[i]. At this point V[i]
-contains the indeed in S of the signature of rank i (i.e., that i-th signature
+contains the index in S of the signature of rank i (i.e., that i-th signature
 in sorted order), and so the signatures S[V[i]] appear in order as i grows.
 
 2. Using this property, we deduplicate S: that is, we mark as useless all
