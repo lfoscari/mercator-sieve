@@ -56,14 +56,15 @@ fn flush_sieve(sieve: &mut Vec<u64>, auxiliary: &mut fs::File) -> Result<(), std
     loop {
         if sieve_index >= sieve.len() {
             for url in &known_urls[known_index..] {
-                let _ = write!(new_known_urls, "{:?}\n", *url);
+                write!(new_known_urls, "{:?}\n", *url)?;
             }
             break;
         }
 
         if known_index >= known_urls.len() {
             for url in &sieve[sieve_index..] {
-                let _ = write!(new_known_urls, "{:?}\n", *url);
+                write!(new_known_urls, "{:?}\n", *url)?;
+                discovered_urls[sorting_helper[sieve_index]] = true;
             }
             break;
         }
